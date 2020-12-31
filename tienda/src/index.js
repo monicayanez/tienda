@@ -1,12 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import 'materialize-css';
-import Header from './components/Header';
-import './styles.css'; 
-import 'materialize-css/dist/css/materialize.css';
+import App from './App';
 
 ReactDOM.render(
-    <Header />
+    <App />
   ,document.getElementById('root')
 );
 

@@ -3,7 +3,7 @@ import React from 'react'
 const Header = () => {
     return (
         <>
-            <header>
+        <header>
             <nav class="home-nav">
                 <div class="nav-wrapper">
                 <a href="#!" class="brand-logo">Logo</a>
@@ -15,8 +15,8 @@ const Header = () => {
                     <li><a href="#">Carrito</a></li>
                 </ul>
                 </div>
-  </nav>
-            </header>
+            </nav>
+        </header>
         </>
     )
 }
