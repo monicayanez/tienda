@@ -1,5 +1,58 @@
 .home-nav { 
     background-color: #f0d38a;
     padding: 10px 30px 10px 30px;
-    height: 84px;
+    height: 110px;
+}
+h2 {
+    color: #f0d38a;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 30px;
+    margin-left: 50px;
+}
+nav.home-nav img {
+    max-height: 93px;
+    margin-top: -6px;
+}
+@media only screen and (min-width: 601px) {
+nav, nav .nav-wrapper i, nav a.sidenav-trigger, nav a.sidenav-trigger i {
+    height: 64px;
+    line-height: 84px;
+}
+}
+.card {
+    max-width: 500px;
+}
+.btn, .btn-large, .btn-small {
+    background-color:#f0d38a;
+}
+.btn:hover {
+    background-color:#b8b8b8;
+}
+.btn a {
+    color: #ffffff;
+}
+.card .card-content .card-title {
+    display: block;
+    line-height: 1px;
+    margin-bottom: -28px;
+    background-color: #f0d38a;
+}
+.shop-cart {
+   background-color: #707070;
+}
+.shop-cart:hover {
+    background-color: #b8b8b8;
+}
+.btn-floating.halfway-fab {
+    position: absolute;
+    right: 4px;
+    bottom: 4px;
+}
+.card .card-image .card-title {
+    padding: 18px
+}
+.card .card-title {
+    font-size: 22px;
+    font-weight: 300;
 }
