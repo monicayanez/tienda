@@ -4,7 +4,7 @@ import React from 'react';
 function ShoppingCart() {
     return (
       <>
-             <i class="material-icons">shopping_cart</i>
+             <i className="material-icons">shopping_cart</i>
        </>
     )
 }

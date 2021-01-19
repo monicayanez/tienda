@@ -5,7 +5,7 @@ function ItemList( { productsAPI } ) {
 
     return (
         <div className="itemList">
-            { productsAPI.map( product => <Item id={product.id} 
+            { productsAPI.map( product => <Item id={product.id} key={product.id}
             name={product.productName} image={product.productImg} />)
             }
         </div>
