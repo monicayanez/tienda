@@ -175,7 +175,7 @@ const productsAPI = [
             const i = productsAPI.find(product => product.id == id)
             console.log(i)
             resolve(i); 
-        }, 3000); })
+        }, 2000); })
         promesa.then(result => setItem(result)) 
         promesa.catch(err => console.log("Oops hubo un error")) 
 
@@ -195,7 +195,7 @@ const productsAPI = [
              initial={item.initial}
              />
              :
-             <h2>Cargando todos los Stickers..</h2>}
+             <p>Cargando el sticker seleccionado..</p>}
         </>
     )
 }

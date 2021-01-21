@@ -3,8 +3,11 @@ import 'materialize-css';
 import 'materialize-css/dist/css/materialize.css';
 import Header from './components/Header';
 import ItemListContainer from './components/ItemListContainer';
-import ItemDetail from './components/ItemDetail';
+//import ItemDetail from './components/ItemDetail';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import ItemDetailContainer from './components/ItemDetailContainer';
+import CartProvider from './components/CartContext';
+import Cart from './components/Cart'
 
 const productsAPI = [ 
   { 
@@ -186,8 +189,9 @@ function App() {
 
 
   return (
-    <div className="app">
-      <BrowserRouter>
+    <div className="shopContainer">
+      <CartProvider>
+        <BrowserRouter>
         <Header />
         <Switch>
           <Route exact path="/">
@@ -197,10 +201,14 @@ function App() {
             <ItemListContainer details="Stickers y Diseños" productsAPI={items} />
           </Route>
           <Route exact path="/item/:id">
-            <ItemDetail  productsAPI={items}  />
+            <ItemDetailContainer/>
           </Route>
+          <Route exact path="/cart">
+            <Cart/>
+            </Route>
       </Switch>
       </BrowserRouter>
+      </CartProvider>
     </div>
   );
 }

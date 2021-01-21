@@ -1,8 +1,10 @@
 import React, { useState, useParams, useEffect } from 'react';
 import { Button, Card } from 'react-materialize';
 import ItemCounter from './ItemCounter';
+import 'materialize-css';
+import 'materialize-css/dist/css/materialize.css';
 
-function ItemDetail( { item, id, productName, productImg, description, price, stock, initial }) {
+function ItemDetail( { item, productsAPI, productImg, productName, description, price, initial, stock }) {
 
     const [ counter, setCounter ] = useState(initial)
     const [ cart, setCart ] = useState([])
@@ -29,22 +31,20 @@ function ItemDetail( { item, id, productName, productImg, description, price, st
     return (
         <Card>
         <Card className="card-image">
-            <img src={productImg}/>
-            <span className="card-title">{productName}</span>
+            <img src={item.productImg}/>
+            <span className="card-title">{item.productName}</span>
         </Card>
         <div className="card-content">
             <p>{description}</p>
-            <p>{price}</p>
-            <Button>
-            <a className="btn-floating halfway-fab waves-effect waves-light shop-cart">
-                <i className="material-icons">add_shopping_cart</i></a>
-            </Button>
+            <p>${price}</p>
+           
             <div>
             <ItemCounter initial={initial} stock={stock} add={add} substract={substract}
             agregarAlCarrito={agregarAlCarrito} item={item} counter={counter} open={open}/>
           </div>
         </div>
     </Card>
+
            )
 }
 

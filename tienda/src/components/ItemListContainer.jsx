@@ -21,7 +21,7 @@ function ItemListContainer({ details, productsAPI }) {
     return (
         <>
             <h2>{details}</h2>
-            {productsAPI.length > 1 ? <ItemList productsAPI={items} /> : <h2>Cargando Stickers</h2>}           
+            {productsAPI.length > 1 ? <ItemList productsAPI={items} /> : <p>Cargando stickers...</p>}           
         </>
     )
 }

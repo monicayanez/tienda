@@ -1,26 +1,29 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-import { Button, Card } from 'react-materialize';
+import { Button } from 'react-materialize';
 
 
 function ItemCounter({ item, add, substract, agregarAlCarrito, counter, open }) {
 
     
     return (
-        <Card>
+        <div className="counter">
+            <>
                 <Button onClick={substract}>-</Button>
-                    <h3>{counter}</h3>
+                    <h6>{counter}</h6>
                 <Button onClick={add}>+</Button>
-            { !open ? (<div className="itemCount__agregar">
+            </>
+            <>
+            { !open ? (<div className="counter">
                 <Button onClick={ () => agregarAlCarrito(item)}>
-                  <h3>Agregar al Carrito<i className="material-icons">add_shopping_cart</i></h3>
+                  Agregar al Carrito<i className="material-icons">add_shopping_cart</i>
                 </Button>
             </div>) : 
             (<Link to="/cart"><Button>
-            <h4>Finalizar compra</h4>
+            Confirmar Sticker
           </Button></Link>) }
-            
-        </Card>
+            </>
+        </div>
     )
 }
 
