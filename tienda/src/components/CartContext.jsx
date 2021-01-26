@@ -29,15 +29,15 @@ function CartProvider( { children }) {
     }
 
 
-    function addToCart(product, counter, id) {
+    function addToCart(product, counter) {
          
-        if (isInCart(id)){
+        if (isInCart(product.id)){
         
-            const oldProduct = cart.find(p => p.id === id)
+            const oldProduct = cart.find(p => p.id === product.id)
             const newQuantity = oldProduct.amount + counter           
             const newProduct = { id: oldProduct.id, name: oldProduct.productName, image: oldProduct.productImg, price: oldProduct.price, amount: newQuantity}
     
-            const cartWithoutOld = cart.filter(product => product.id =! id)
+            const cartWithoutOld = cart.filter(product => product.id =! product.id)
          
             const cartWithNew = [...cartWithoutOld, newProduct]
             setCart(cartWithNew)  

@@ -1,14 +1,17 @@
-import React, { useState, useParams, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 import { Button, Card } from 'react-materialize';
+import { Link } from 'react-router-dom'
 import ItemCounter from './ItemCounter';
 import 'materialize-css';
 import 'materialize-css/dist/css/materialize.css';
+import { CartContext } from './CartContext';
 
-function ItemDetail( { item, productsAPI, productImg, productName, description, price, initial, stock }) {
+
+function ItemDetail( { item, description, price, initial, stock }) {
 
     const [ counter, setCounter ] = useState(initial)
-    const [ cart, setCart ] = useState([])
     const [ open, setOpen ] = useState(false)
+    const { addToCart } = useContext(CartContext)
     
     function add(){
         if (counter < stock ){
@@ -22,7 +25,7 @@ function ItemDetail( { item, productsAPI, productImg, productName, description, 
     }
 
     function agregarAlCarrito (product) {
-        setCart(...cart, { id: product.id, name: product.productName, image: product.productImg, amount: counter })
+        addToCart(product, counter)
         setOpen(true)
     }
 
@@ -42,6 +45,7 @@ function ItemDetail( { item, productsAPI, productImg, productName, description, 
             <ItemCounter initial={initial} stock={stock} add={add} substract={substract}
             agregarAlCarrito={agregarAlCarrito} item={item} counter={counter} open={open}/>
           </div>
+          
         </div>
     </Card>
 

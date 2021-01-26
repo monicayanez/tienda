@@ -1,11 +1,10 @@
 import { Button, Card } from 'react-materialize';
 import { Link } from 'react-router-dom';
 import React, { useContext } from 'react'
-import {CartContext} from './CartContext'
+import { CartContext } from './CartContext'
 import CartItem from './CartItem';
 
-
-function Cart() {
+ function Cart() {
     const { cart, clearCart, total } = useContext(CartContext)
 
     return (
@@ -32,17 +31,21 @@ function Cart() {
             { cart.length > 0 &&
             <>
             <p>${total}</p>
-            <div>
+            <div className="collection">
                 <Button onClick={clearCart}>
                     Eliminar todos los items
                 </Button>
                 <Button onClick={() => {console.log(cart)}}>
                    Proceder al pago
                 </Button>
+                <Link to="/"><Button>
+            Regresar
+          </Button></Link>
             </div>
             </>}
         </div>
     )
 }
+
 
 export default Cart
