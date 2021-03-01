@@ -6,7 +6,7 @@ import { Button, Card } from 'react-materialize';
 function Item({ id, name, image }) {
    
     return (   
-            <Card>
+            <Card className="col s4">
                 <Card className="card-image">
                     <img src={image}/>
                     <span className="card-title">{name}</span>

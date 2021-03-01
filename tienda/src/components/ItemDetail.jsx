@@ -32,22 +32,21 @@ function ItemDetail( { item, description, price, initial, stock }) {
 
 
     return (
-        <Card>
-        <Card className="card-image">
-            <img src={item.productImg}/>
-            <span className="card-title">{item.productName}</span>
-        </Card>
-        <div className="card-content">
-            <p>{description}</p>
-            <p>${price}</p>
+        <Card className="col s4">
+            <Card className="card-image">
+                <img src={item.productImg}/>
+                <span className="card-title">{item.productName}</span>
+            </Card>
+            <ul class="collection item-detail-collection">
+                <li class="collection-item"><p>{description}</p></li>
+                <li class="collection-item"> <p>Precio por unidad ${price}</p></li>
+            </ul> 
+                <ItemCounter initial={initial} stock={stock} add={add} substract={substract}
+                agregarAlCarrito={agregarAlCarrito} item={item} counter={counter} open={open}/>
            
-            <div>
-            <ItemCounter initial={initial} stock={stock} add={add} substract={substract}
-            agregarAlCarrito={agregarAlCarrito} item={item} counter={counter} open={open}/>
-          </div>
-          
-        </div>
-    </Card>
+          </Card>
+       
+   
 
            )
 }

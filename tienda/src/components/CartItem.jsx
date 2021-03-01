@@ -3,16 +3,16 @@ import { Button, Card } from 'react-materialize';
 import { CartContext } from './CartContext';
 
 
-function CartItem( { id, productName, productImg, price, amount }) {
+function CartItem( { id, name, image, price, amount }) {
     const { eliminateFromCart } = useContext(CartContext)
 
     return (
         <Card>
             <div className="card-title">
-                {productName}
+                {name}
             </div>
-            <div className="card-title">
-                <img src={productImg} alt={productName} />
+            <div className="card-image">
+                <img src={image} alt={name} />
             </div>
             <div className="card-content">
                 <p>${price}</p>

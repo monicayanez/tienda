@@ -1,10 +1,13 @@
+body {
+background-color: #f8f8f8;
+}
 .home-nav { 
     background-color: #f0d38a;
     padding: 10px 30px 10px 30px;
     height: 110px;
 }
 h2 {
-    color: #f0d38a;
+    color: #505050;
     text-transform: uppercase;
     font-weight: 400;
     font-size: 30px;
@@ -31,13 +34,21 @@ nav, nav .nav-wrapper i, nav a.sidenav-trigger, nav a.sidenav-trigger i {
 }
 
 
+.card .card-image {
+    /* position: relative; */
+    max-height: 300px;
+    max-width: 300px;
+}
 .card {
-    max-width: 500px;
+    /* max-height: 400px; */
+    /* width: auto; */
+    max-height: 400px;
+    height: 435px;
 }
 .btn, .btn-large, .btn-small {
     background-color:#f0d38a;
 }
-.btn:hover {
+.btn:hover, .btn-large:hover, .btn-small:hover {
     background-color:#b8b8b8;
 }
 .btn a {
@@ -48,6 +59,7 @@ nav, nav .nav-wrapper i, nav a.sidenav-trigger, nav a.sidenav-trigger i {
     line-height: 1px;
     margin-bottom: -28px;
     background-color: #f0d38a;
+    border-radius: 3px;
 }
 .shop-cart {
    background-color: #707070;
@@ -64,13 +76,33 @@ nav, nav .nav-wrapper i, nav a.sidenav-trigger, nav a.sidenav-trigger i {
     padding: 18px
 }
 .card .card-title {
-    font-size: 22px;
+    font-size: 14px;
     font-weight: 300;
 }
 .counter {
     display: inline-flex;
     padding-left: 15px;
 }
+.ver-carrito { 
+    margin-left: 15px;
+}
 h6 {
     padding: 0 10px 0 10px;
+}
+
+.col.s4.card {
+    margin: 20px;
+    max-height: 500px;
+    width: auto;
+}
+.btn, .btn-large, .btn-small, .btn-floating, .btn-large, .btn-small, .btn-flat {
+    font-size: 12px;
+    outline: 0;
+}
+.dropdown-content li > a, .dropdown-content li > span {
+    font-size: 14px;
+    color: #c4aa6a;
+}
+.item-detail-collection {
+    margin-top: 90px;
 }

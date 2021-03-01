@@ -19,8 +19,8 @@ function ItemCounter({ item, add, substract, agregarAlCarrito, counter, open }) 
                   Agregar al Carrito<i className="material-icons">add_shopping_cart</i>
                 </Button>
             </div>) : 
-            (<Link to="/cart"><Button>
-            Confirmar Sticker
+            (<Link to="/cart"><Button className="ver-carrito">
+            Ver el carrito
           </Button></Link>) }
             </>
         </div>

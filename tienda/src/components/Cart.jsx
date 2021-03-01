@@ -1,8 +1,29 @@
 import { Button, Card } from 'react-materialize';
 import { Link } from 'react-router-dom';
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { CartContext } from './CartContext'
 import CartItem from './CartItem';
+import {firestore} from "./firebase";
+import firebase from 'firebase/app';
+
+function submitOrder(){
+
+        
+    const db = firestore
+    const orders = db.collection('orders')
+
+    const order = {
+        buyer: { name: name, phone: phone, email: email},
+        items: cart,
+        date: firebase.firestore.Timestamp.fromDate(new Date()),
+        total: total,
+    }
+    orders.add(order)
+    .then(({ id }) => alert("Anotá el id de tu compra " + id))
+    .catch((error) => console.log(error))
+}
+
+
 
  function Cart() {
     const { cart, clearCart, total } = useContext(CartContext)
@@ -22,9 +43,12 @@ import CartItem from './CartItem';
             </Link>
             </>)}
             <div className="collection-item">
-                { cart.length > 0 && cart.map( product => <CartItem key={product.id} 
-                id={product.id} name={product.name} image={product.image} price={product.price} 
-                amount={product.amount} />)}
+                { cart.length > 0 && cart.map( product => {
+                   console.log(product)
+                   return( <CartItem key={product.id} 
+                        id={product.id} name={product.name} image={product.image} price={product.price} 
+                        amount={product.amount} />)
+               } )}
             </div>
 
 
@@ -46,6 +70,22 @@ import CartItem from './CartItem';
         </div>
     )
 }
+
+{ openPay && 
+    <form className={classes.root} noValidate autoComplete="off">
+    <TextField id="standard-basic" label="Name" value={name} 
+    onChange={(e) => setName(e.target.value)} />
+    <TextField id="standard-basic" label="Telephone" value={phone} 
+    onChange={(e) => setPhone(e.target.value)} />
+    <TextField id="standard-basic" label="Email" value={email} 
+    onChange={(e) => setEmail(e.target.value)} />
+    <Button onClick={submitOrder}>
+            Sí!
+        </Button>
+  </form>}
+
+
+
 
 
 export default Cart

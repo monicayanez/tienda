@@ -65,7 +65,7 @@ const Header = () => {
     <NavItem href="#">
     Contacto
      </NavItem>
-     <NavItem href="#">
+     <NavItem>
     <ShoppingCart />
      </NavItem>
   <Dropdown

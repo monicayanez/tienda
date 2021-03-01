@@ -8,8 +8,9 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import ItemDetailContainer from './components/ItemDetailContainer';
 import CartProvider from './components/CartContext';
 import Cart from './components/Cart'
+import { firestore } from './firebase';
 
-const productsAPI = [ 
+/*  const productsAPI = [ 
   { 
       id: "0",
       productName: "Sticker Jovenes Nasa VANS InstaMini",
@@ -186,9 +187,27 @@ function App() {
     promesa.catch( err => console.log("Oops hubo un error")) 
 
   }, []);
+ */
+
+function App() {
+  const [ fireItems, setFireItems ] = useState([])
 
 
-  return (
+useEffect(() => {
+  const db = firestore
+  const collection = db.collection('products')
+  const query = collection.get()
+  query
+    .then((result) => {
+      setFireItems(result.docs.map(p => ({id: p.id, ...p.data()})))
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+}, [fireItems])
+
+
+  return ( 
     <div className="shopContainer">
       <CartProvider>
         <BrowserRouter>
@@ -205,12 +224,13 @@ function App() {
           </Route>
           <Route exact path="/cart">
             <Cart/>
-            </Route>
+          </Route>
       </Switch>
       </BrowserRouter>
       </CartProvider>
     </div>
   );
-}
 
+  }
+ 
 export default App;
