@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ItemDetail from './ItemDetail';
 import { useParams } from "react-router-dom";
-
+/* 
 const productsAPI = [ 
   { 
       id: "0",
@@ -163,9 +163,9 @@ const productsAPI = [
     category: "comida",
     productImg: "https://image.freepik.com/free-vector/summer-food-activities-set_74855-6666.jpg"
   },
-]
+] */
   
-  function ItemDetailContainer() {
+/*   function ItemDetailContainer() {
     const [ item, setItem ] = useState()
     const { id } = useParams()
 
@@ -179,20 +179,38 @@ const productsAPI = [
         promesa.then(result => setItem(result)) 
         promesa.catch(err => console.log("Oops hubo un error")) 
 
-    },  [id]);
+    },  [id]); */
+
+    function ItemDetailContainer() {
+      const [ fireItem, setFireItem ] = useState()
+      const { id } = useParams()
+     
+      useEffect(() => {
+        const db = firestore
+        const collection = db.collection('products') 
+        const item = collection.doc(id)
+   
+        item.get()
+         .then( (i) => {
+           setFireItem({ id: i.id, ...i.data()})
+         })
+   
+     },  [id]);
+
+
 
     return (
         <>
-            { item ?
+            { fireItem ?
             <ItemDetail
-            item={item}
-             id={item.id}
-             name={item.productName}     
-             price={item.price}
-             image={item.productImg}
-             description={item.description}
-             stock={item.stock}
-             initial={item.initial}
+            item={fireItem}
+             id={fireItem.id}
+             name={fireItem.productName}     
+             price={fireItem.price}
+             image={fireItem.productImg}
+             description={fireItem.description}
+             stock={fireItem.stock}
+             initial={fireItem.initial}
              />
              :
              <p>Cargando el sticker seleccionado..</p>}

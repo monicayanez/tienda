@@ -214,10 +214,10 @@ useEffect(() => {
         <Header />
         <Switch>
           <Route exact path="/">
-            <ItemListContainer details="Stickers y Diseños" productsAPI={items} />
+            <ItemListContainer details="Stickers y Diseños" productsAPI={fireItems} />
           </Route>
           <Route exact path="/category/:id">
-            <ItemListContainer details="Stickers y Diseños" productsAPI={items} />
+            <ItemListContainer details="Stickers y Diseños" productsAPI={fireItems} />
           </Route>
           <Route exact path="/item/:id">
             <ItemDetailContainer/>
